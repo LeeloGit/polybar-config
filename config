@@ -1,0 +1,59 @@
+
+###### Polybar Config File ######
+
+[bar/mybar]
+modules-left = 
+modules-right = xbacklight time date battery #Displays Modules
+module-margin = 2 #Module Spacing
+
+monitor =  
+background = #808080
+
+seperator = 
+
+
+radius = 10.0 
+width = 50%
+bottom = true
+padding = 3
+offset-y = 0.75%
+offset-x = 22.5%
+override-redirect = true
+wm-restack = i3
+font-0 = San Francisco Display Regular:size=10;2.5
+
+
+[module/date]
+type = internal/date
+date = %Y-%m-%d
+
+[module/mpd]
+format-online= ...
+format-offline = ...
+
+[module/battery]
+type = internal/battery
+label = BAT
+full-at = 99
+battery = BAT0
+adapter = ADP0
+poll-interval = 5
+
+[module/time]
+type = custom/script
+exec = /home/liam/.config/polybar/scripts/time.sh
+interval = 1 
+tail = true
+
+[module/xbacklight]
+type = internal/xbacklight
+enable-scroll = true
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+
+
+

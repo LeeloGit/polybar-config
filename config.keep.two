@@ -1,0 +1,34 @@
+
+###### Polybar Config File ######
+
+[bar/mybar]
+modules-right = date battery #Displays Modules
+padding = 3
+module-margin = 2 #Module Spacing
+monitor = 
+separator = 
+background = #ab000000
+
+
+[module/date]
+type = internal/date
+date = %Y-%m-%d
+
+[module/mpd]
+format-online= ...
+format-offline = ...
+
+[module/battery]
+type = internal/battery
+full-at = 99
+
+battery = BAT0
+adapter = ADP0
+
+poll-interval = 5
+
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+use-ui-max = true
+interval = 5
