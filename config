@@ -2,8 +2,8 @@
 ###### Polybar Config File ######
 
 [bar/mybar]
-modules-left = 
-modules-right = xbacklight time date battery #Displays Modules
+modules-left = battery xbacklight 
+modules-right = time date  #Displays Modules
 module-margin = 2 #Module Spacing
 
 monitor =  
@@ -20,7 +20,10 @@ offset-y = 0.75%
 offset-x = 22.5%
 override-redirect = true
 wm-restack = i3
-font-0 = San Francisco Display Regular:size=10;2.5
+
+
+
+font-0 = "Roboto:size=11:weight=bold;2"
 
 
 [module/date]
@@ -33,8 +36,10 @@ format-offline = ...
 
 [module/battery]
 type = internal/battery
-label = BAT
 full-at = 99
+formant-prefix =   
+label-charging = BAT: %percentage%%
+label-discharging = BAT: %percentage%%
 battery = BAT0
 adapter = ADP0
 poll-interval = 5
@@ -48,6 +53,10 @@ tail = true
 [module/xbacklight]
 type = internal/xbacklight
 enable-scroll = true
+label = BRT: %percentage%%
+
+
+
 
 [module/backlight-acpi]
 inherit = module/xbacklight
