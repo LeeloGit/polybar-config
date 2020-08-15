@@ -1,17 +1,16 @@
 
 ###### Polybar Config File ######
 
+
 [bar/mybar]
-modules-left = battery xbacklight 
+modules-left = battery xbacklight pulseaudio
+modules-center = ewmh 
 modules-right = time date  #Displays Modules
 module-margin = 2 #Module Spacing
 
 monitor =  
 background = #808080
-
-seperator = 
-
-
+ 
 radius = 10.0 
 width = 50%
 bottom = true
@@ -20,20 +19,20 @@ offset-y = 0.75%
 offset-x = 22.5%
 override-redirect = true
 wm-restack = i3
-
-
-
 font-0 = "Roboto:size=11:weight=bold;2"
 
-
+#Date
 [module/date]
 type = internal/date
 date = %Y-%m-%d
 
+
+#I need to check wtf this is lol
 [module/mpd]
 format-online= ...
 format-offline = ...
 
+#Battery
 [module/battery]
 type = internal/battery
 full-at = 99
@@ -44,25 +43,39 @@ battery = BAT0
 adapter = ADP0
 poll-interval = 5
 
+#Time
 [module/time]
 type = custom/script
 exec = /home/liam/.config/polybar/scripts/time.sh
 interval = 1 
 tail = true
 
+#Brightness
 [module/xbacklight]
 type = internal/xbacklight
 enable-scroll = true
 label = BRT: %percentage%%
-
-
-
 
 [module/backlight-acpi]
 inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
-
-
-
+#Audio
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = 
+use-ui-max = true
+interval = 2
+format-volume = <label-volume> 
+label-volume = VOL: %percentage%%
+enable-scroll = true
+ 
+#Workspaces
+[module/ewmh]
+type = internal/xworkspaces
+enable-click = true
+pin-workspaces = true
+format = <label-state>
+label-active-foreground = #301934
+label-active-background = #FFF00 
