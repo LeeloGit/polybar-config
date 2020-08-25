@@ -9,14 +9,10 @@ modules-right = time date  #Displays Modules
 module-margin = 2 #Module Spacing
 
 monitor =  
-background = #808080
- 
-radius = 10.0 
-width = 50%
+background = #282828
+width = 100%
 bottom = true
 padding = 3
-offset-y = 0.75%
-offset-x = 22.5%
 override-redirect = true
 wm-restack = i3
 font-0 = "Roboto:size=11:weight=bold;2"
@@ -77,5 +73,5 @@ type = internal/xworkspaces
 enable-click = true
 pin-workspaces = true
 format = <label-state>
-label-active-foreground = #301934
+label-active-foreground = #FFFFFF
 label-active-background = #FFF00 
